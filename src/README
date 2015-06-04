@@ -1,0 +1,4 @@
+This utility is useful for transferring music from a backup to a new computer.
+
+With two directories wher there are some newer versions of the files in the target directory, and some files in the origin directory that do not exist in the target directory, 
+1. Does not copy over already existing files in the target directory, but the folder contents are copied over.
