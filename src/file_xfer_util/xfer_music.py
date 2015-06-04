@@ -22,6 +22,7 @@ Copy both into the Tests folder to test a function
 
 import os
 import shutil #for copying/pasting
+from operator import or_
 
 #directory of this script
 pwd = os.path.abspath('')
@@ -93,21 +94,28 @@ def copyover_case2(source, dest):
     #for files in folder 1
     for f in sourcefileList:
         print("File: " + f)
-        
+        print("Source: " + source_path + f)
+        print("Destination: " + dest_path + f)
+                
         #check if there is a file with the same name in dest2.
         if (not (os.path.isfile(dest_path + f))):
             
-            #if directory
-            if (os.path.isdir(dest_path + f)): #do the same for the files within the idrectory
+            #if directory (that exists in the thing)
+            if (os.path.isdir(dest_path + f) and os.path.isdir(source_path + f)): #do the same for the files within the idrectory
                 print("It's a directory!")
-                print("source path is " + dest_path + f)
+                print("source path is " + source_path + f)
                 print("dest path is " + dest_path)
                 copyover_case2(source_path + f, dest_path + f)
                 
                 #problem: it is a directory, but it is not going there.
-                            
+            elif (os.path.isdir(source_path + f)):
+                print("this is a directory that doesn't exist in dest") 
+                shutil.copytree(source_path + f, dest_path + f,False,ignore= None)
             #otherwise, copy
             else:
+                #if it is a directory that does not yet exist
+                
+                #if it is a file that does not exist?
                 shutil.copyfile(source_path + f, dest_path + f)
                 print ("Love darling")
             
@@ -136,6 +144,8 @@ and also with several directories
 
 >> Case 3 Test
 result should be: 1 - 5 in every directory of case3dest
+
+There is a folder in case 3 that does not work
 '''
 # case3source = pwd + '/Tests/case3start'
 # case3dest = pwd + '/Tests/case3dest'
@@ -158,10 +168,10 @@ Do What You Want Section
 
 #copy music (not done)
 #my hard drive
-# source = ''
-# dest = '~/Music/iTunes/iTunes Media/Music'
+source = '/Volumes/Macintosh HD 1/Users/fabulousness/Music/iTunes/iTunes Media/Music'
+dest = '/Users/fabulousness/Music/iTunes/iTunes Media/Music'
 
-# copyover_case1(source, dest)
+copyover_case2(source, dest)
 
 
 
