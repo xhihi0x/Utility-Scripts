@@ -1,6 +1,9 @@
 TABLE OF CONTENTS
 
 * file_xfer_util:
-    This utility is useful for transferring music from a backup to a new computer in itunes/media/music.
-    Copies over files from dir1 to dir2 s.t. dir2's files are not replaced: does not copy over files in dir2 with the same name, does not replace new subdirectories with old ones
-    Use: if one copies over normally
+    - This utility is useful for transferring music from a backup to a new computer in itunes/media/music.
+    - Also useful for copying from any backup to new one.
+    - Copies over files from dir1 to dir2 s.t. dir2's files are not replaced: does not copy over files in dir2 with the same 
+    name, does not replace new subdirectories with old ones
+    - See README inside folder for use
+    
